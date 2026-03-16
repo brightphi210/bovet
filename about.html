@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About Us – Bovet Engineering Limited</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+:root{--navy:#0e1a35;--navy2:#162040;--gold:#c8972a;--gold2:#e8b040;--white:#fff;--offwhite:#f5f6f8;--text:#2a2f3d;--muted:#6b7280;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Barlow',sans-serif;color:var(--text);overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+
+.topbar{background:var(--navy);border-bottom:1px solid rgba(200,151,42,.2);padding:9px 5%;display:flex;justify-content:space-between;align-items:center;}
+.topbar-left{display:flex;gap:24px;flex-wrap:wrap;}
+.tb-item{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.6);font-size:12px;}
+.tb-item svg{color:var(--gold);width:13px;height:13px;}
+.tb-social{display:flex;gap:8px;}
+.tb-social a{width:26px;height:26px;border:1px solid rgba(200,151,42,.3);border-radius:3px;display:grid;place-items:center;color:rgba(255,255,255,.5);transition:.2s;}
+.tb-social a svg{width:12px;height:12px;}
+.tb-social a:hover{background:var(--gold);color:var(--navy);border-color:var(--gold);}
+
+nav{background:#fff;box-shadow:0 2px 20px rgba(0,0,0,.07);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:72px;position:sticky;top:0;z-index:900;}
+.nav-logo{display:flex;align-items:center;gap:12px;}
+.logo-badge{width:46px;height:46px;background:var(--navy);border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;flex-shrink:0;}
+.logo-badge::after{content:'';position:absolute;width:8px;height:8px;background:var(--gold);border-radius:50%;top:6px;right:6px;}
+.logo-badge span{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;color:#fff;line-height:1;}
+.logo-text strong{display:block;font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:800;color:var(--navy);letter-spacing:.5px;line-height:1.1;}
+.logo-text small{font-size:9px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;font-weight:700;}
+.nav-menu{display:flex;list-style:none;gap:2px;}
+.nav-menu li a{display:block;padding:8px 16px;font-size:13px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--text);border-radius:3px;transition:.2s;}
+.nav-menu li a:hover,.nav-menu li a.active{color:var(--gold);}
+.nav-cta{display:flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:11px 22px;border-radius:3px;font-size:13px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;transition:.2s;}
+.nav-cta svg{width:14px;height:14px;}
+.nav-cta:hover{background:var(--gold);color:var(--navy);}
+.hamburger{display:none;width:42px;height:42px;border:2px solid var(--navy);border-radius:4px;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;background:none;}
+.hamburger span{width:18px;height:2px;background:var(--navy);border-radius:2px;}
+
+/* PAGE HERO */
+.page-hero{
+  min-height:55vh;padding-top:0;
+  background:var(--navy);
+  position:relative;overflow:hidden;
+  display:flex;align-items:flex-end;
+}
+.hero-bg-img{position:absolute;inset:0;background:url('images/2.jpeg') center/cover no-repeat;opacity:.18;}
+.hero-pattern{position:absolute;inset:0;background-image:radial-gradient(rgba(200,151,42,.07) 1px,transparent 1px);background-size:28px 28px;}
+.hero-gradient{position:absolute;inset:0;background:linear-gradient(to top,var(--navy) 20%,transparent 100%);}
+.ph-inner{max-width:1200px;margin:0 auto;padding:80px 5% 60px;position:relative;z-index:2;width:100%;}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;}
+.breadcrumb a{color:var(--gold);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;}
+.breadcrumb span{color:rgba(255,255,255,.25);font-size:12px;}
+.breadcrumb .cur{color:rgba(255,255,255,.5);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;}
+.ph-inner h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(44px,7vw,88px);font-weight:900;color:#fff;line-height:.95;}
+.ph-inner h1 em{color:var(--gold2);font-style:normal;}
+.ph-inner p{color:rgba(255,255,255,.55);font-size:16px;margin-top:16px;max-width:520px;line-height:1.65;}
+
+/* SHARED */
+.section{padding:88px 5%;}
+.s-inner{max-width:1200px;margin:0 auto;}
+.kicker{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.kicker::before{content:'';width:28px;height:2px;background:var(--gold);}
+.sh2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,4vw,50px);font-weight:800;color:var(--navy);line-height:1.05;margin-bottom:14px;}
+.sh2 em{color:var(--gold);font-style:normal;}
+.btn-gold{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:var(--navy);padding:14px 26px;border-radius:3px;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;transition:.2s;}
+.btn-gold svg{width:15px;height:15px;}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(200,151,42,.35);}
+
+/* VMC */
+.vmc-bg{background:var(--offwhite);}
+.vmc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:0;}
+.vmc-card{padding:40px 32px;border-radius:3px;}
+.vmc-card.v{background:var(--navy2);}
+.vmc-card.m{background:var(--navy);}
+.vmc-card.c{background:var(--gold);}
+.vmc-card .vc-tag{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;margin-bottom:14px;opacity:.6;}
+.vmc-card.v .vc-tag,.vmc-card.m .vc-tag{color:rgba(255,255,255,.5);}
+.vmc-card.c .vc-tag{color:rgba(14,26,53,.5);}
+.vmc-card h3{font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:800;margin-bottom:14px;}
+.vmc-card.v h3,.vmc-card.m h3{color:var(--gold2);}
+.vmc-card.c h3{color:var(--navy);}
+.vmc-card p{font-size:14px;line-height:1.75;}
+.vmc-card.v p,.vmc-card.m p{color:rgba(255,255,255,.75);}
+.vmc-card.c p{color:rgba(14,26,53,.75);}
+
+/* STORY */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
+.story-l h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,3.5vw,44px);font-weight:800;color:var(--navy);line-height:1.1;margin-bottom:22px;}
+.story-l h2 em{color:var(--gold);font-style:normal;}
+.story-l p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px;}
+.story-l .hl{background:#fffbf2;border-left:4px solid var(--gold);padding:18px 20px;margin-top:22px;border-radius:0 3px 3px 0;}
+.story-l .hl p{margin:0;font-size:14px;color:var(--text);font-style:italic;}
+.exp-list{list-style:none;display:flex;flex-direction:column;}
+.exp-list li{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #eee;font-size:14px;font-weight:500;color:var(--text);}
+.exp-list li svg{color:var(--gold);width:15px;height:15px;flex-shrink:0;}
+.exp-list li span{font-size:11px;color:#bbb;margin-left:auto;font-weight:400;letter-spacing:.5px;}
+
+/* PILLARS */
+.pillars-bg{background:var(--navy);}
+.pillars-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:44px;}
+.pillar{background:#0d1830;padding:34px 20px;text-align:center;transition:.3s;}
+.pillar:hover{background:#162040;transform:translateY(-4px);}
+.pillar .p-ico{width:52px;height:52px;background:rgba(200,151,42,.1);border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;}
+.pillar .p-ico svg{color:var(--gold);width:22px;height:22px;}
+.pillar h4{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:var(--gold2);margin-bottom:8px;}
+.pillar p{font-size:12px;color:rgba(255,255,255,.4);line-height:1.6;}
+
+/* GALLERY */
+.gallery-bg{background:var(--offwhite);}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:14px;margin-top:44px;}
+.g-item{position:relative;overflow:hidden;border-radius:3px;cursor:pointer;background:#c8d0da;}
+.g-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease;}
+.g-item:hover img{transform:scale(1.07);}
+.g-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,15,34,.85) 0%,transparent 60%);opacity:0;transition:.3s;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;}
+.g-item:hover .g-ov{opacity:1;}
+.g-ov span{color:#fff;font-size:14px;font-weight:600;}
+.g-ov small{color:var(--gold);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;margin-top:3px;}
+.g-item.t{grid-row:span 2;}
+.g-item.w{grid-column:span 2;}
+.g-item:not(.t){aspect-ratio:4/3;}
+.g-item.t{aspect-ratio:auto;}
+
+/* LIGHTBOX */
+.lb{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.96);align-items:center;justify-content:center;padding:20px;}
+.lb.open{display:flex;}
+.lb-wrap{position:relative;max-width:90vw;}
+.lb-wrap img{max-width:90vw;max-height:86vh;object-fit:contain;border-radius:3px;display:block;}
+.lb-x{position:absolute;top:-42px;right:0;color:#fff;font-size:30px;cursor:pointer;background:none;border:none;display:grid;place-items:center;width:36px;height:36px;}
+.lb-x svg{width:24px;height:24px;}
+.lb-pr,.lb-nx{position:fixed;top:50%;transform:translateY(-50%);color:#fff;cursor:pointer;background:rgba(255,255,255,.08);border:none;padding:14px 16px;border-radius:2px;transition:.2s;z-index:10000;}
+.lb-pr svg,.lb-nx svg{width:22px;height:22px;}
+.lb-pr{left:14px;}
+.lb-nx{right:14px;}
+.lb-pr:hover,.lb-nx:hover{background:rgba(200,151,42,.4);}
+.lb-cap{text-align:center;margin-top:12px;color:rgba(255,255,255,.5);font-size:13px;}
+
+/* FOOTER */
+footer{background:#060b18;padding:68px 5% 0;border-top:3px solid var(--gold);}
+.ft{max-width:1200px;margin:0 auto;}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:44px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,.06);}
+.ft-brand-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.ft-brand p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.75;max-width:260px;}
+.ft-contact-stack{margin-top:22px;display:flex;flex-direction:column;gap:9px;}
+.ft-ci{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.5);}
+.ft-ci svg{color:var(--gold);width:13px;height:13px;flex-shrink:0;}
+.ft-col h4{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;color:#fff;letter-spacing:.5px;margin-bottom:18px;padding-bottom:9px;border-bottom:2px solid rgba(200,151,42,.2);}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.ft-col ul li a{font-size:13px;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:6px;transition:.2s;}
+.ft-col ul li a svg{width:11px;height:11px;}
+.ft-col ul li a:hover{color:var(--gold);padding-left:3px;}
+.ft-socials{display:flex;gap:8px;margin-top:20px;}
+.ft-soc{width:34px;height:34px;border:1px solid rgba(200,151,42,.25);border-radius:3px;display:grid;place-items:center;color:rgba(255,255,255,.4);transition:.2s;}
+.ft-soc svg{width:13px;height:13px;}
+.ft-soc:hover{background:var(--gold);color:var(--navy);border-color:var(--gold);}
+.ft-bottom{padding:22px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.ft-bottom p{font-size:12px;color:rgba(255,255,255,.22);}
+.ft-bottom a{font-size:12px;color:var(--gold);}
+
+.rev{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease;}
+.rev.on{opacity:1;transform:translateY(0);}
+
+.mob-nav{display:none;position:fixed;inset:0;background:var(--navy);z-index:9999;flex-direction:column;}
+.mob-nav.open{display:flex;}
+.mob-head{display:flex;justify-content:space-between;align-items:center;padding:18px 5%;border-bottom:1px solid rgba(200,151,42,.18);}
+.mob-close{width:40px;height:40px;border:2px solid rgba(255,255,255,.2);border-radius:4px;display:grid;place-items:center;cursor:pointer;background:none;color:#fff;}
+.mob-close svg{width:19px;height:19px;}
+.mob-links{flex:1;overflow-y:auto;padding:28px 5%;display:flex;flex-direction:column;gap:4px;}
+.mob-links a{display:flex;align-items:center;gap:14px;padding:15px 18px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:700;color:rgba(255,255,255,.75);border-left:3px solid transparent;transition:.2s;}
+.mob-links a svg{width:19px;height:19px;flex-shrink:0;}
+.mob-links a:hover,.mob-links a.active{color:var(--gold);border-left-color:var(--gold);background:rgba(200,151,42,.06);}
+.mob-foot{padding:22px 5%;border-top:1px solid rgba(200,151,42,.18);}
+.mob-foot a{color:var(--gold);font-size:13px;}
+
+@media(max-width:1100px){.ft-top{grid-template-columns:1fr 1fr;}}
+@media(max-width:900px){
+  .topbar{display:none;}
+  .vmc-grid{grid-template-columns:1fr;}
+  .story-grid{grid-template-columns:1fr;gap:40px;}
+  .pillars-grid{grid-template-columns:1fr 1fr;}
+  .gallery-grid{grid-template-columns:1fr 1fr;}
+  .g-item.t{grid-row:span 1;aspect-ratio:4/3;}
+  .g-item.w{grid-column:span 1;}
+  .ft-top{grid-template-columns:1fr 1fr;gap:28px;}
+}
+@media(max-width:768px){
+  .nav-menu,.nav-cta{display:none;}
+  .hamburger{display:flex;}
+  .ft-top{grid-template-columns:1fr;}
+  .ft-bottom{flex-direction:column;text-align:center;}
+}
+@media(max-width:500px){
+  .gallery-grid{grid-template-columns:1fr;}
+  .pillars-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <div class="tb-item"><svg data-lucide="phone"></svg><span>+2349011113491</span></div>
+    <div class="tb-item"><svg data-lucide="mail"></svg><span>bovet.engineering@gmail.com</span></div>
+    <div class="tb-item"><svg data-lucide="map-pin"></svg><span>Port Harcourt, Rivers State</span></div>
+  </div>
+  <div class="tb-social">
+    <a href="#"><svg data-lucide="linkedin"></svg></a>
+    <a href="#"><svg data-lucide="twitter"></svg></a>
+    <a href="#"><svg data-lucide="facebook"></svg></a>
+  </div>
+</div>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <div class="logo-badge"><span>B</span></div>
+    <div class="logo-text"><strong>BOVET</strong><small>Engineering Limited</small></div>
+  </a>
+  <ul class="nav-menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta"><svg data-lucide="send"></svg>Get a Quote</a>
+  <button class="hamburger" id="hbg" onclick="openMob()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mob-nav" id="mobNav">
+  <div class="mob-head">
+    <a class="nav-logo" href="index.html">
+      <div class="logo-badge"><span>B</span></div>
+      <div class="logo-text"><strong style="color:#fff;">BOVET</strong><small style="color:var(--gold);">Engineering Limited</small></div>
+    </a>
+    <button class="mob-close" onclick="closeMob()"><svg data-lucide="x"></svg></button>
+  </div>
+  <div class="mob-links">
+    <a href="index.html"><svg data-lucide="home"></svg>Home</a>
+    <a href="about.html" class="active"><svg data-lucide="users"></svg>About Us</a>
+    <a href="contact.html"><svg data-lucide="phone-call"></svg>Contact</a>
+  </div>
+  <div class="mob-foot">
+    <p><a href="tel:+2349011113491">+2349011113491</a></p>
+    <p style="margin-top:6px;"><a href="mailto:bovet.engineering@gmail.com">bovet.engineering@gmail.com</a></p>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-gradient"></div>
+  <div class="ph-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <span class="cur">About Us</span>
+    </div>
+    <h1>About <em>Bovet</em><br/>Engineering</h1>
+    <p>Technically sound in Engineering solutions for Africa — from IT/Telecom to Electrical/Mechanical and Procurement/Logistics, delivering excellence with precision.</p>
+  </div>
+</section>
+
+<!-- VMC -->
+<section class="section vmc-bg">
+  <div class="s-inner">
+    <p class="kicker rev">Who We Are</p>
+    <h2 class="sh2 rev">Our Guiding <em>Principles</em></h2>
+    <div class="vmc-grid rev">
+      <div class="vmc-card v">
+        <div class="vc-tag">01 — Vision</div>
+        <h3>Our Vision</h3>
+        <p>To deliver top-tier Engineering and IT solutions that inspire trust in Power and IT innovation spaces, connect communities, and support economic growth across regions.</p>
+      </div>
+      <div class="vmc-card m">
+        <div class="vc-tag">02 — Mission</div>
+        <h3>Our Mission</h3>
+        <p>To be the leading force in Engineering &amp; IT innovation across Africa — defined by quality, trust, and measurable impact in every project we undertake.</p>
+      </div>
+      <div class="vmc-card c">
+        <div class="vc-tag">03 — Values</div>
+        <h3>Core Values</h3>
+        <p>We are driven by Safety, Respect, Collaboration, Integrity, and Innovation — delivering safe and sustainable solutions through accountability and teamwork.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="section" style="background:#fff;">
+  <div class="s-inner">
+    <div class="story-grid">
+      <div class="rev">
+        <p class="kicker">Our Story</p>
+        <h2>Technically Sound in <em>Engineering Solutions</em> for Africa</h2>
+        <p>In Bovet Engineering, everything we do, we believe in challenging the status quo. We believe in thinking differently. The way we challenge the status quo is by making our services and products beautifully designed, simple to use, and making sure we work with our clients throughout the process.</p>
+        <p>We ensure we achieve the best solution tailored to their need and also provide after-sales support, making sure they have peace of mind while using our services and products.</p>
+        <p>Bovet Engineering is founded on the pillars of safety, respect, collaboration, integrity, and innovation. We've built a reputation for delivering projects on time, within budget and most importantly to clients' expected outcomes.</p>
+        <div class="hl">
+          <p>"We don't just bring Precision in everything we do — we make sure our clients get the desired outcome, giving way for long-time resilience."</p>
+        </div>
+        <br/>
+        <a href="contact.html" class="btn-gold"><svg data-lucide="send"></svg>Work With Us</a>
+      </div>
+      <div class="rev">
+        <p class="kicker">What We Specialise In</p>
+        <h2 class="sh2" style="margin-bottom:22px;">Our <em>Expertise</em></h2>
+        <ul class="exp-list">
+          <li><svg data-lucide="check-circle"></svg>ICT &amp; Telecommunications Infrastructure<span>Core</span></li>
+          <li><svg data-lucide="check-circle"></svg>CCTV &amp; Video Surveillance Systems<span>Security</span></li>
+          <li><svg data-lucide="check-circle"></svg>Access Control &amp; Security Solutions<span>Security</span></li>
+          <li><svg data-lucide="check-circle"></svg>Electrical Engineering &amp; Power Systems<span>Power</span></li>
+          <li><svg data-lucide="check-circle"></svg>Mechanical Engineering Works<span>Mechanical</span></li>
+          <li><svg data-lucide="check-circle"></svg>Procurement &amp; Logistics Management<span>Supply Chain</span></li>
+          <li><svg data-lucide="check-circle"></svg>Project Planning &amp; Management<span>Operations</span></li>
+          <li><svg data-lucide="check-circle"></svg>After-Sales Support &amp; Maintenance<span>Support</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="section pillars-bg">
+  <div class="s-inner">
+    <p class="kicker rev" style="color:rgba(200,151,42,.7);">Our Foundation</p>
+    <h2 class="sh2 rev" style="color:#fff;">The Five <em>Pillars</em> We Stand On</h2>
+    <div class="pillars-grid">
+      <div class="pillar rev"><div class="p-ico"><svg data-lucide="shield"></svg></div><h4>Safety</h4><p>Every project begins and ends with the safety of people and assets as the top priority.</p></div>
+      <div class="pillar rev"><div class="p-ico"><svg data-lucide="handshake"></svg></div><h4>Respect</h4><p>We honour our clients, partners, and team members in all engagements.</p></div>
+      <div class="pillar rev"><div class="p-ico"><svg data-lucide="users"></svg></div><h4>Collaboration</h4><p>Working closely with clients to co-create the best possible solutions throughout the process.</p></div>
+      <div class="pillar rev"><div class="p-ico"><svg data-lucide="scale"></svg></div><h4>Integrity</h4><p>We operate with honesty, transparency, and accountability at all times.</p></div>
+      <div class="pillar rev"><div class="p-ico"><svg data-lucide="lightbulb"></svg></div><h4>Innovation</h4><p>Embracing new technologies and approaches to deliver smarter, sustainable results.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section gallery-bg">
+  <div class="s-inner">
+    <p class="kicker rev">Our Work in Pictures</p>
+    <h2 class="sh2 rev">Project <em>Gallery</em></h2>
+    <p class="rev" style="font-size:15px;color:var(--muted);margin-top:-8px;">A showcase of our engineering projects. Click any image to view full size.</p>
+    <div class="gallery-grid">
+      <div class="g-item t rev" onclick="openLb(0)">
+        <img src="images/1.jpeg" alt="Telecommunications" onerror="this.parentElement.style.background='#1a2540';this.style.display='none'"/>
+        <div class="g-ov"><span>Telecommunications Infrastructure</span><small>IT / Telecom</small></div>
+      </div>
+      <div class="g-item rev" onclick="openLb(1)">
+        <img src="images/2.jpeg" alt="Company" onerror="this.parentElement.style.background='#1a2540';this.style.display='none'"/>
+        <div class="g-ov"><span>Company Overview</span><small>About</small></div>
+      </div>
+      <div class="g-item rev" onclick="openLb(2)">
+        <img src="images/3.jpeg" alt="Access Control" onerror="this.parentElement.style.background='#1a2540';this.style.display='none'"/>
+        <div class="g-ov"><span>Access Control &amp; ICT Works</span><small>Security</small></div>
+      </div>
+      <div class="g-item w rev" onclick="openLb(3)">
+        <img src="images/4.jpeg" alt="Field Operations" onerror="this.parentElement.style.background='#1a2540';this.style.display='none'"/>
+        <div class="g-ov"><span>Field Operations &amp; CCTV Systems</span><small>Operations</small></div>
+      </div>
+      <div class="g-item rev" onclick="openLb(4)">
+        <img src="images/5.jpeg" alt="Engineering" onerror="this.parentElement.style.background='#1a2540';this.style.display='none'"/>
+        <div class="g-ov"><span>Engineering Expertise</span><small>Electrical</small></div>
+      </div>
+      <div class="g-item rev" onclick="openLb(5)">
+        <img src="images/6.jpeg" alt="Power Systems" onerror="this.parentElement.style.background='#1a2540';this.style.display='none'"/>
+        <div class="g-ov"><span>Electrical &amp; Power Systems</span><small>Power</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-pr" onclick="changeLb(-1)"><svg data-lucide="chevron-left"></svg></button>
+  <div class="lb-wrap">
+    <button class="lb-x" onclick="closeLb()"><svg data-lucide="x"></svg></button>
+    <img id="lbImg" src="" alt=""/>
+    <div class="lb-cap" id="lbCap"></div>
+  </div>
+  <button class="lb-nx" onclick="changeLb(1)"><svg data-lucide="chevron-right"></svg></button>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <div class="ft-brand-logo">
+          <div class="logo-badge"><span>B</span></div>
+          <div class="logo-text"><strong style="color:#fff;">BOVET</strong><small style="color:var(--gold);">Engineering Limited</small></div>
+        </div>
+        <p>Technically sound in Engineering solutions for Africa — from IT/Telecom to Electrical/Mechanical and Procurement/Logistics.</p>
+        <div class="ft-contact-stack">
+          <div class="ft-ci"><svg data-lucide="map-pin"></svg>Mile 3, Ikokwu, 2B Odunze St, Phalga, Port Harcourt, Rivers State.</div>
+          <div class="ft-ci"><svg data-lucide="phone"></svg>+2349011113491</div>
+          <div class="ft-ci"><svg data-lucide="mail"></svg>bovet.engineering@gmail.com</div>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html"><svg data-lucide="chevron-right"></svg>Home</a></li>
+          <li><a href="about.html"><svg data-lucide="chevron-right"></svg>About Us</a></li>
+          <li><a href="contact.html"><svg data-lucide="chevron-right"></svg>Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Our Services</h4>
+        <ul>
+          <li><a href="#"><svg data-lucide="chevron-right"></svg>IT / Telecommunications</a></li>
+          <li><a href="#"><svg data-lucide="chevron-right"></svg>CCTV &amp; Surveillance</a></li>
+          <li><a href="#"><svg data-lucide="chevron-right"></svg>Access Control</a></li>
+          <li><a href="#"><svg data-lucide="chevron-right"></svg>Electrical / Mechanical</a></li>
+          <li><a href="#"><svg data-lucide="chevron-right"></svg>Procurement &amp; Logistics</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="tel:+2349011113491"><svg data-lucide="phone-call"></svg>+2349011113491</a></li>
+          <li><a href="mailto:bovet.engineering@gmail.com"><svg data-lucide="mail"></svg>bovet.engineering@gmail.com</a></li>
+        </ul>
+        <div class="ft-socials">
+          <a class="ft-soc" href="#"><svg data-lucide="linkedin"></svg></a>
+          <a class="ft-soc" href="#"><svg data-lucide="twitter"></svg></a>
+          <a class="ft-soc" href="#"><svg data-lucide="facebook"></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p>&copy; 2025 Bovet Engineering Limited. All rights reserved.</p>
+      <a href="mailto:bovet.engineering@gmail.com">bovet.engineering@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+lucide.createIcons();
+function openMob(){document.getElementById('mobNav').classList.add('open');document.body.style.overflow='hidden';}
+function closeMob(){document.getElementById('mobNav').classList.remove('open');document.body.style.overflow='';}
+const imgs=[
+  {src:'images/1.jpeg',cap:'Telecommunications Infrastructure — IT / Telecom'},
+  {src:'images/2.jpeg',cap:'Company Overview — About Bovet Engineering'},
+  {src:'images/3.jpeg',cap:'Access Control & ICT Works — Security Systems'},
+  {src:'images/4.jpeg',cap:'Field Operations & CCTV Systems — Operations'},
+  {src:'images/5.jpeg',cap:'Engineering Expertise — Electrical Works'},
+  {src:'images/6.jpeg',cap:'Electrical & Power Systems — Power Engineering'},
+  {src:'images/7.jpeg',cap:'Electrical & Power Systems — Power Engineering'},
+  {src:'images/8.jpeg',cap:'Electrical & Power Systems — Power Engineering'},
+];
+let cur=0;
+function openLb(i){cur=i;document.getElementById('lbImg').src=imgs[i].src;document.getElementById('lbCap').textContent=imgs[i].cap;document.getElementById('lb').classList.add('open');document.body.style.overflow='hidden';lucide.createIcons();}
+function closeLb(){document.getElementById('lb').classList.remove('open');document.body.style.overflow='';}
+function changeLb(d){cur=(cur+d+imgs.length)%imgs.length;document.getElementById('lbImg').src=imgs[cur].src;document.getElementById('lbCap').textContent=imgs[cur].cap;}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')changeLb(-1);if(e.key==='ArrowRight')changeLb(1);});
+document.getElementById('lb').addEventListener('click',e=>{if(e.target===document.getElementById('lb'))closeLb();});
+const ro=new IntersectionObserver(entries=>entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('on'),i*70);ro.unobserve(e.target);}}),{threshold:.1});
+document.querySelectorAll('.rev').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>

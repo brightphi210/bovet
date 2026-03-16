@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bovet Engineering Limited – Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+:root{
+  --navy:#0e1a35; --navy2:#162040;
+  --gold:#c8972a; --gold2:#e8b040;
+  --white:#fff; --offwhite:#f5f6f8;
+  --text:#2a2f3d; --muted:#6b7280;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Barlow',sans-serif;color:var(--text);overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+
+/* TOP BAR */
+.topbar{background:var(--navy);border-bottom:1px solid rgba(200,151,42,.2);padding:9px 5%;display:flex;justify-content:space-between;align-items:center;}
+.topbar-left{display:flex;gap:24px;flex-wrap:wrap;}
+.tb-item{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.6);font-size:12px;}
+.tb-item svg{color:var(--gold);width:13px;height:13px;}
+.tb-social{display:flex;gap:8px;}
+.tb-social a{width:26px;height:26px;border:1px solid rgba(200,151,42,.3);border-radius:3px;display:grid;place-items:center;color:rgba(255,255,255,.5);transition:.2s;}
+.tb-social a svg{width:12px;height:12px;}
+.tb-social a:hover{background:var(--gold);color:var(--navy);border-color:var(--gold);}
+
+/* NAV */
+nav{background:#fff;box-shadow:0 2px 20px rgba(0,0,0,.07);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:72px;position:sticky;top:0;z-index:900;}
+.nav-logo{display:flex;align-items:center;gap:12px;}
+.logo-badge{width:46px;height:46px;background:var(--navy);border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;flex-shrink:0;}
+.logo-badge::after{content:'';position:absolute;width:8px;height:8px;background:var(--gold);border-radius:50%;top:6px;right:6px;}
+.logo-badge span{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;color:#fff;line-height:1;}
+.logo-text strong{display:block;font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:800;color:var(--navy);letter-spacing:.5px;line-height:1.1;}
+.logo-text small{font-size:9px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;font-weight:700;}
+.nav-menu{display:flex;list-style:none;gap:2px;}
+.nav-menu li a{display:block;padding:8px 16px;font-size:13px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--text);border-radius:3px;transition:.2s;}
+.nav-menu li a:hover,.nav-menu li a.active{color:var(--gold);}
+.nav-cta{display:flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:11px 22px;border-radius:3px;font-size:13px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;transition:.2s;}
+.nav-cta svg{width:14px;height:14px;}
+.nav-cta:hover{background:var(--gold);color:var(--navy);}
+.hamburger{display:none;width:42px;height:42px;border:2px solid var(--navy);border-radius:4px;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;background:none;}
+.hamburger span{width:18px;height:2px;background:var(--navy);border-radius:2px;transition:.3s;}
+
+/* HERO */
+.hero{position:relative;height:92vh;min-height:560px;overflow:hidden;}
+.slides{display:flex;width:300%;height:100%;transition:transform .85s cubic-bezier(.77,0,.175,1);}
+.slide{width:33.333%;height:100%;position:relative;display:flex;align-items:center;}
+.slide-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1);transition:transform 9s ease;}
+.slide.active .slide-bg{transform:scale(1.07);}
+.slide-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(8,15,34,.9) 0%,rgba(8,15,34,.6) 55%,rgba(8,15,34,.2) 100%);}
+.slide:nth-child(1) .slide-bg{background-image:url('images/1.jpeg');background-color:#0e1a35;}
+.slide:nth-child(2) .slide-bg{background-image:url('images/4.jpeg');background-color:#0e1a35;}
+.slide:nth-child(3) .slide-bg{background-image:url('images/5.jpeg');background-color:#0e1a35;}
+.slide-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 5%;width:100%;}
+.slide-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(200,151,42,.15);border:1px solid rgba(200,151,42,.45);color:var(--gold2);padding:7px 18px;border-radius:2px;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-bottom:22px;animation:fadeUp .7s ease both;}
+.slide-tag svg{width:13px;height:13px;}
+.slide-content h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(48px,7vw,94px);font-weight:900;color:#fff;line-height:.95;margin-bottom:18px;animation:fadeUp .7s .14s ease both;}
+.slide-content h1 em{color:var(--gold2);font-style:normal;display:block;}
+.slide-content p{font-size:clamp(15px,1.5vw,18px);color:rgba(255,255,255,.7);line-height:1.7;max-width:520px;margin-bottom:36px;animation:fadeUp .7s .26s ease both;}
+.slide-btns{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .7s .38s ease both;}
+.btn-gold{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:var(--navy);padding:15px 28px;border-radius:3px;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;transition:.2s;}
+.btn-gold svg{width:15px;height:15px;}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 10px 30px rgba(200,151,42,.4);}
+.btn-wht{display:inline-flex;align-items:center;gap:9px;background:transparent;color:#fff;padding:13px 26px;border-radius:3px;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:2px solid rgba(255,255,255,.4);cursor:pointer;transition:.2s;}
+.btn-wht svg{width:15px;height:15px;}
+.btn-wht:hover{border-color:#fff;background:rgba(255,255,255,.08);}
+.hero-dots{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;z-index:10;}
+.dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.3);border:none;cursor:pointer;padding:0;transition:.3s;}
+.dot.active{background:var(--gold);width:30px;border-radius:5px;}
+.hero-arrows{position:absolute;bottom:28px;right:5%;display:flex;gap:8px;z-index:10;}
+.h-arr{width:46px;height:46px;border:2px solid rgba(255,255,255,.25);border-radius:3px;background:rgba(255,255,255,.05);backdrop-filter:blur(4px);color:#fff;cursor:pointer;display:grid;place-items:center;transition:.2s;}
+.h-arr svg{width:18px;height:18px;}
+.h-arr:hover{background:var(--gold);border-color:var(--gold);color:var(--navy);}
+.slide-num{position:absolute;top:50%;right:4%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:10;}
+.slide-num .n-big{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:var(--gold);}
+.slide-num .n-sm{font-family:'Barlow Condensed',sans-serif;font-size:13px;color:rgba(255,255,255,.35);font-weight:600;}
+.vline{width:1px;height:60px;background:rgba(255,255,255,.15);overflow:hidden;position:relative;}
+.vline::after{content:'';position:absolute;top:-33%;left:0;width:100%;height:33%;background:var(--gold);animation:vla 4s linear infinite;}
+@keyframes vla{0%{top:-33%}100%{top:100%}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* SERVICE STRIP */
+.svc-strip{background:var(--navy);}
+.strip-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid rgba(255,255,255,.06);}
+.strip-item{padding:34px 26px;border-right:1px solid rgba(255,255,255,.06);border-top:3px solid transparent;display:flex;flex-direction:column;gap:10px;transition:.3s;}
+.strip-item:hover{border-top-color:var(--gold);background:rgba(200,151,42,.04);}
+.s-ico{width:42px;height:42px;background:rgba(200,151,42,.1);border-radius:4px;display:grid;place-items:center;}
+.s-ico svg{color:var(--gold);width:19px;height:19px;}
+.strip-item h4{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;color:#fff;}
+.strip-item p{font-size:12px;color:rgba(255,255,255,.4);line-height:1.6;}
+
+/* SHARED */
+.section{padding:88px 5%;}
+.s-inner{max-width:1200px;margin:0 auto;}
+.kicker{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.kicker::before{content:'';width:28px;height:2px;background:var(--gold);}
+.sh2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(30px,4vw,52px);font-weight:800;color:var(--navy);line-height:1.05;margin-bottom:14px;}
+.sh2 em{color:var(--gold);font-style:normal;}
+.slead{font-size:15px;color:var(--muted);line-height:1.75;max-width:560px;margin-bottom:44px;}
+
+/* SERVICES */
+.services-bg{background:var(--offwhite);}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.svc-card{background:#fff;border-radius:4px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06);transition:.3s;}
+.svc-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,.1);}
+.svc-img{height:190px;overflow:hidden;position:relative;}
+.svc-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.svc-card:hover .svc-img img{transform:scale(1.07);}
+.svc-img .stag{position:absolute;top:12px;left:12px;background:var(--gold);color:var(--navy);padding:4px 10px;border-radius:2px;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;}
+.svc-body{padding:22px 20px;}
+.svc-body h3{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:800;color:var(--navy);margin-bottom:7px;}
+.svc-body p{font-size:13px;color:var(--muted);line-height:1.6;}
+.svc-link{display:flex;align-items:center;gap:6px;margin-top:12px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);}
+.svc-link svg{width:13px;height:13px;transition:transform .2s;}
+.svc-card:hover .svc-link svg{transform:translateX(4px);}
+
+/* WHY */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.why-img-wrap{position:relative;border-radius:4px;overflow:visible;aspect-ratio:4/5;}
+.why-img-wrap img{width:100%;height:100%;object-fit:cover;border-radius:4px;display:block;}
+.why-badge{position:absolute;bottom:28px;left:-24px;background:var(--gold);padding:20px 22px;border-radius:3px;box-shadow:0 10px 32px rgba(200,151,42,.4);}
+.why-badge .wbn{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:900;color:var(--navy);line-height:1;}
+.why-badge p{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy);}
+.why-pts{display:flex;flex-direction:column;gap:14px;margin-bottom:32px;}
+.wp{display:flex;gap:16px;align-items:flex-start;padding:18px 20px;border-radius:3px;border-left:3px solid transparent;transition:.2s;}
+.wp:hover{background:var(--offwhite);border-left-color:var(--gold);}
+.wp-ico{width:44px;height:44px;flex-shrink:0;background:rgba(14,26,53,.06);border-radius:4px;display:grid;place-items:center;}
+.wp-ico svg{width:19px;height:19px;color:var(--navy);}
+.wp h4{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.wp p{font-size:13px;color:var(--muted);line-height:1.6;}
+
+/* STATS */
+.stats-bg{background:var(--navy);padding:64px 5%;}
+.stats-row{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);}
+.st{padding:40px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.07);position:relative;}
+.st:last-child{border-right:none;}
+.st::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:36px;height:3px;background:var(--gold);transition:width .3s;}
+.st:hover::before{width:72px;}
+.st .big{font-family:'Barlow Condensed',sans-serif;font-size:62px;font-weight:900;color:#fff;line-height:1;}
+.st .big em{color:var(--gold);font-style:normal;}
+.st p{font-size:11px;font-weight:600;color:rgba(255,255,255,.45);letter-spacing:2px;text-transform:uppercase;margin-top:8px;}
+
+/* SPLIT */
+.split{display:grid;grid-template-columns:1fr 1fr;}
+.split-l{background:var(--navy2);padding:80px 7% 80px 8%;}
+.split-r{background:var(--gold);padding:80px 8% 80px 7%;}
+.split-l .kicker{color:rgba(200,151,42,.7);}
+.split-l .kicker::before{background:rgba(200,151,42,.4);}
+.split-l h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,3vw,42px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:28px;}
+.exp-ul{list-style:none;display:flex;flex-direction:column;gap:0;}
+.exp-ul li{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.7);font-size:14px;font-weight:500;}
+.exp-ul li svg{color:var(--gold);width:15px;height:15px;flex-shrink:0;}
+.split-r blockquote{font-family:'Barlow Condensed',sans-serif;font-size:clamp(22px,2.8vw,36px);font-weight:800;color:var(--navy);line-height:1.2;margin-bottom:24px;}
+.split-r blockquote::before{content:'\201C';font-size:72px;color:rgba(14,26,53,.12);line-height:.45;display:block;margin-bottom:10px;}
+.split-r cite{font-size:12px;font-weight:700;color:rgba(14,26,53,.5);letter-spacing:1.5px;text-transform:uppercase;font-style:normal;}
+.split-r .r-cta{display:inline-flex;align-items:center;gap:8px;margin-top:28px;background:var(--navy);color:#fff;padding:14px 26px;border-radius:3px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;transition:.2s;}
+.split-r .r-cta svg{width:14px;height:14px;}
+.split-r .r-cta:hover{background:var(--navy2);}
+
+/* CTA BAND */
+.cta-band{background:linear-gradient(105deg,var(--navy) 0%,#1c2f5e 100%);padding:80px 5%;text-align:center;position:relative;overflow:hidden;}
+.cta-band::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(200,151,42,.08) 1px,transparent 1px);background-size:32px 32px;}
+.cta-inner{max-width:680px;margin:0 auto;position:relative;z-index:1;}
+.cta-inner h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(32px,5vw,58px);font-weight:900;color:#fff;line-height:1;margin-bottom:14px;}
+.cta-inner h2 em{color:var(--gold2);font-style:normal;}
+.cta-inner p{font-size:15px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:34px;}
+.cta-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+
+/* FOOTER */
+footer{background:#060b18;padding:68px 5% 0;border-top:3px solid var(--gold);}
+.ft{max-width:1200px;margin:0 auto;}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:44px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,.06);}
+.ft-brand-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.ft-brand p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.75;max-width:260px;}
+.ft-contact-stack{margin-top:22px;display:flex;flex-direction:column;gap:9px;}
+.ft-ci{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.5);}
+.ft-ci svg{color:var(--gold);width:13px;height:13px;flex-shrink:0;}
+.ft-col h4{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;color:#fff;letter-spacing:.5px;margin-bottom:18px;padding-bottom:9px;border-bottom:2px solid rgba(200,151,42,.2);}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.ft-col ul li a{font-size:13px;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:6px;transition:.2s;}
+.ft-col ul li a svg{width:11px;height:11px;}
+.ft-col ul li a:hover{color:var(--gold);padding-left:3px;}
+.ft-socials{display:flex;gap:8px;margin-top:20px;}
+.ft-soc{width:34px;height:34px;border:1px solid rgba(200,151,42,.25);border-radius:3px;display:grid;place-items:center;color:rgba(255,255,255,.4);transition:.2s;}
+.ft-soc svg{width:13px;height:13px;}
+.ft-soc:hover{background:var(--gold);color:var(--navy);border-color:var(--gold);}
+.ft-bottom{padding:22px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.ft-bottom p{font-size:12px;color:rgba(255,255,255,.22);}
+.ft-bottom a{font-size:12px;color:var(--gold);}
+
+/* REVEAL */
+.rev{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease;}
+.rev.on{opacity:1;transform:translateY(0);}
+
+/* MOBILE NAV */
+.mob-nav{display:none;position:fixed;inset:0;background:var(--navy);z-index:9999;flex-direction:column;}
+.mob-nav.open{display:flex;}
+.mob-head{display:flex;justify-content:space-between;align-items:center;padding:18px 5%;border-bottom:1px solid rgba(200,151,42,.18);}
+.mob-close{width:40px;height:40px;border:2px solid rgba(255,255,255,.2);border-radius:4px;display:grid;place-items:center;cursor:pointer;background:none;color:#fff;}
+.mob-close svg{width:19px;height:19px;}
+.mob-links{flex:1;overflow-y:auto;padding:28px 5%;display:flex;flex-direction:column;gap:4px;}
+.mob-links a{display:flex;align-items:center;gap:14px;padding:15px 18px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:700;color:rgba(255,255,255,.75);border-left:3px solid transparent;transition:.2s;}
+.mob-links a svg{width:19px;height:19px;flex-shrink:0;}
+.mob-links a:hover,.mob-links a.active{color:var(--gold);border-left-color:var(--gold);background:rgba(200,151,42,.06);}
+.mob-foot{padding:22px 5%;border-top:1px solid rgba(200,151,42,.18);}
+.mob-foot p{font-size:13px;color:rgba(255,255,255,.4);}
+.mob-foot a{color:var(--gold);}
+
+@media(max-width:1100px){.svc-grid{grid-template-columns:1fr 1fr;}.ft-top{grid-template-columns:1fr 1fr;}}
+@media(max-width:900px){
+  .topbar{display:none;}
+  .why-grid{grid-template-columns:1fr;}
+  .why-img-wrap{aspect-ratio:16/9;}
+  .split{grid-template-columns:1fr;}
+  .stats-row{grid-template-columns:1fr 1fr;}
+  .st{border-right:none;border-bottom:1px solid rgba(255,255,255,.07);}
+  .st:nth-child(odd){border-right:1px solid rgba(255,255,255,.07);}
+  .strip-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+  .nav-menu,.nav-cta{display:none;}
+  .hamburger{display:flex;}
+  .hero{height:100svh;}
+  .hero-arrows,.slide-num{display:none;}
+  .svc-strip{display:none;}
+  .ft-top{grid-template-columns:1fr;gap:28px;}
+  .ft-bottom{flex-direction:column;text-align:center;}
+}
+@media(max-width:500px){
+  .svc-grid{grid-template-columns:1fr;}
+  .stats-row{grid-template-columns:1fr;}
+  .st{border-right:none !important;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <div class="tb-item"><svg data-lucide="phone"></svg><span>+2349011113491</span></div>
+    <div class="tb-item"><svg data-lucide="mail"></svg><span>bovet.engineering@gmail.com</span></div>
+    <div class="tb-item"><svg data-lucide="map-pin"></svg><span>Port Harcourt, Rivers State</span></div>
+  </div>
+  <div class="tb-social">
+    <a href="#"><svg data-lucide="linkedin"></svg></a>
+    <a href="#"><svg data-lucide="twitter"></svg></a>
+    <a href="#"><svg data-lucide="facebook"></svg></a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <div class="logo-badge"><span>B</span></div>
+    <div class="logo-text"><strong>BOVET</strong><small>Engineering Limited</small></div>
+  </a>
+  <ul class="nav-menu">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta"><svg data-lucide="send"></svg> Get a Quote</a>
+  <button class="hamburger" id="hbg" onclick="openMob()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mob-nav" id="mobNav">
+  <div class="mob-head">
+    <a class="nav-logo" href="index.html">
+      <div class="logo-badge"><span>B</span></div>
+      <div class="logo-text"><strong style="color:#fff;">BOVET</strong><small style="color:var(--gold);">Engineering Limited</small></div>
+    </a>
+    <button class="mob-close" onclick="closeMob()"><svg data-lucide="x"></svg></button>
+  </div>
+  <div class="mob-links">
+    <a href="index.html" class="active"><svg data-lucide="home"></svg>Home</a>
+    <a href="about.html"><svg data-lucide="users"></svg>About Us</a>
+    <a href="contact.html"><svg data-lucide="phone-call"></svg>Contact</a>
+  </div>
+  <div class="mob-foot">
+    <p><a href="tel:+2349011113491">+2349011113491</a></p>
+    <p style="margin-top:6px;"><a href="mailto:bovet.engineering@gmail.com">bovet.engineering@gmail.com</a></p>
+  </div>
+</div>
+
+<!-- HERO SLIDER -->
+<section class="hero">
+  <div class="slides" id="slides">
+    <div class="slide active">
+      <div class="slide-bg"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <div class="slide-tag"><svg data-lucide="radio"></svg>IT &amp; Telecommunications</div>
+        <h1>Solid Foundations.<em>Bold Solutions.</em></h1>
+        <p>Delivering top-tier Engineering and IT solutions that inspire trust — connecting communities and supporting economic growth across Africa.</p>
+        <div class="slide-btns">
+          <a href="about.html" class="btn-gold"><svg data-lucide="arrow-right"></svg>Discover More</a>
+          <a href="contact.html" class="btn-wht"><svg data-lucide="send"></svg>Get a Quote</a>
+        </div>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-bg"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <div class="slide-tag"><svg data-lucide="shield-check"></svg>CCTV &amp; Field Operations</div>
+        <h1>Precision in<em>Every Project.</em></h1>
+        <p>We bring Precision, Professionalism and Excellent Performance in every project we execute — protecting your investment with long-time resilience.</p>
+        <div class="slide-btns">
+          <a href="about.html" class="btn-gold"><svg data-lucide="arrow-right"></svg>Our Work</a>
+          <a href="contact.html" class="btn-wht"><svg data-lucide="phone-call"></svg>Call Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-bg"></div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <div class="slide-tag"><svg data-lucide="zap"></svg>Electrical &amp; Mechanical</div>
+        <h1>Proven Results.<em>Trusted Partner.</em></h1>
+        <p>From IT/Telecom to Electrical/Mechanical solutions and Procurement/Logistics — technically sound engineering for Africa's future.</p>
+        <div class="slide-btns">
+          <a href="contact.html" class="btn-gold"><svg data-lucide="arrow-right"></svg>Work With Us</a>
+          <a href="about.html" class="btn-wht"><svg data-lucide="info"></svg>Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dots">
+    <button class="dot active" onclick="goSlide(0)"></button>
+    <button class="dot" onclick="goSlide(1)"></button>
+    <button class="dot" onclick="goSlide(2)"></button>
+  </div>
+  <div class="hero-arrows">
+    <button class="h-arr" onclick="prev()"><svg data-lucide="chevron-left"></svg></button>
+    <button class="h-arr" onclick="next()"><svg data-lucide="chevron-right"></svg></button>
+  </div>
+  <div class="slide-num">
+    <span class="n-big" id="snum">01</span>
+    <div class="vline"></div>
+    <span class="n-sm">03</span>
+  </div>
+</section>
+
+<!-- SERVICE STRIP -->
+<div class="svc-strip">
+  <div class="strip-grid">
+    <div class="strip-item"><div class="s-ico"><svg data-lucide="folder-kanban"></svg></div><h4>Project Management</h4><p>On time, within budget, to specification.</p></div>
+    <div class="strip-item"><div class="s-ico"><svg data-lucide="wifi"></svg></div><h4>IT / Telecom</h4><p>Scalable, high-performance infrastructure.</p></div>
+    <div class="strip-item"><div class="s-ico"><svg data-lucide="zap"></svg></div><h4>Electrical / Mechanical</h4><p>Power systems, HVAC &amp; machinery works.</p></div>
+    <div class="strip-item"><div class="s-ico"><svg data-lucide="package"></svg></div><h4>Procurement / Logistics</h4><p>Strategic sourcing &amp; supply chain.</p></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section services-bg">
+  <div class="s-inner">
+    <p class="kicker rev">What We Do</p>
+    <h2 class="sh2 rev">Our Core <em>Services</em></h2>
+    <p class="slead rev">Technically sound engineering solutions for Africa — from IT/Telecom to Electrical/Mechanical and Procurement/Logistics.</p>
+    <div class="svc-grid">
+      <div class="svc-card rev">
+        <div class="svc-img"><img src="images/3.jpeg" alt="IT Telecom" onerror="this.parentElement.style.background='#1a2540'"/><span class="stag">IT / Telecom</span></div>
+        <div class="svc-body"><h3>IT &amp; Telecommunications</h3><p>Structured cabling, network infrastructure, wireless systems, and CCTV for secure scalable connectivity.</p><div class="svc-link"><svg data-lucide="arrow-right"></svg>Learn More</div></div>
+      </div>
+      <div class="svc-card rev">
+        <div class="svc-img"><img src="images/4.jpeg" alt="CCTV" onerror="this.parentElement.style.background='#1a2540'"/><span class="stag">Security</span></div>
+        <div class="svc-body"><h3>CCTV &amp; Access Control</h3><p>Biometric, card-based and keypad access systems plus full CCTV surveillance infrastructure.</p><div class="svc-link"><svg data-lucide="arrow-right"></svg>Learn More</div></div>
+      </div>
+      <div class="svc-card rev">
+        <div class="svc-img"><img src="images/5.jpeg" alt="Electrical" onerror="this.parentElement.style.background='#1a2540'"/><span class="stag">Electrical</span></div>
+        <div class="svc-body"><h3>Electrical / Mechanical</h3><p>Power distribution, electrical installations and mechanical engineering for industrial and commercial facilities.</p><div class="svc-link"><svg data-lucide="arrow-right"></svg>Learn More</div></div>
+      </div>
+      <div class="svc-card rev">
+        <div class="svc-img"><img src="images/6.jpeg" alt="Procurement" onerror="this.parentElement.style.background='#1a2540'"/><span class="stag">Procurement</span></div>
+        <div class="svc-body"><h3>Procurement / Logistics</h3><p>Strategic sourcing, supply chain management and logistics ensuring materials arrive on schedule within budget.</p><div class="svc-link"><svg data-lucide="arrow-right"></svg>Learn More</div></div>
+      </div>
+           <div class="svc-card rev">
+        <div class="svc-img"><img src="images/7.jpeg" alt="Procurement" onerror="this.parentElement.style.background='#1a2540'"/><span class="stag">Procurement</span></div>
+        <div class="svc-body"><h3>Procurement / Logistics</h3><p>Strategic sourcing, supply chain management and logistics ensuring materials arrive on schedule within budget.</p><div class="svc-link"><svg data-lucide="arrow-right"></svg>Learn More</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section" style="background:#fff;">
+  <div class="s-inner">
+    <div class="why-grid">
+      <div class="why-img-wrap rev">
+        <img src="images/2.jpeg" alt="Bovet Engineering" onerror="this.style.display='none';this.parentElement.style.background='var(--navy)'"/>
+        <div class="why-badge"><div class="wbn">10<em style="font-size:32px;color:var(--navy);">+</em></div><p>Years of Excellence</p></div>
+      </div>
+      <div class="rev">
+        <p class="kicker">Why Choose Us</p>
+        <h2 class="sh2">Meeting Your <em>Engineering Needs</em> With Excellence</h2>
+        <p class="slead" style="margin-bottom:24px;">We are committed to delivering exceptional Engineering and Procurement Services — with technical precision and dependable solutions for every project.</p>
+        <div class="why-pts">
+          <div class="wp"><div class="wp-ico"><svg data-lucide="award"></svg></div><div><h4>Proven Expertise</h4><p>Years of industry experience delivering complex projects across Nigeria and Africa.</p></div></div>
+          <div class="wp"><div class="wp-ico"><svg data-lucide="cpu"></svg></div><div><h4>Innovative Solutions</h4><p>Modern designs using advanced technologies tailored to your specific needs.</p></div></div>
+          <div class="wp"><div class="wp-ico"><svg data-lucide="shield-check"></svg></div><div><h4>Safety &amp; Quality</h4><p>Strict adherence to global quality standards and safety best practices.</p></div></div>
+          <div class="wp"><div class="wp-ico"><svg data-lucide="headphones"></svg></div><div><h4>After-Sales Support</h4><p>We stay with clients post-delivery to ensure complete peace of mind.</p></div></div>
+        </div>
+        <a href="about.html" class="btn-gold" style="width:fit-content;"><svg data-lucide="arrow-right"></svg>Learn About Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-bg">
+  <div class="stats-row">
+    <div class="st rev"><div class="big">10<em>+</em></div><p>Years Experience</p></div>
+    <div class="st rev"><div class="big">98<em>%</em></div><p>Project Efficiency</p></div>
+    <div class="st rev"><div class="big">100<em>%</em></div><p>Compliance Rate</p></div>
+    <div class="st rev"><div class="big">50<em>+</em></div><p>Projects Delivered</p></div>
+  </div>
+</section>
+
+<!-- SPLIT -->
+<div class="split">
+  <div class="split-l rev">
+    <p class="kicker" style="color:rgba(200,151,42,.7);">Our Specialisations</p>
+    <h2>Our <span style="color:var(--gold2);">Expertise</span></h2>
+    <ul class="exp-ul">
+      <li><svg data-lucide="check-circle"></svg>ICT &amp; Telecommunications Infrastructure</li>
+      <li><svg data-lucide="check-circle"></svg>CCTV &amp; Video Surveillance Systems</li>
+      <li><svg data-lucide="check-circle"></svg>Access Control &amp; Security Solutions</li>
+      <li><svg data-lucide="check-circle"></svg>Electrical Engineering &amp; Power Systems</li>
+      <li><svg data-lucide="check-circle"></svg>Mechanical Engineering Works</li>
+      <li><svg data-lucide="check-circle"></svg>Procurement &amp; Logistics Management</li>
+      <li><svg data-lucide="check-circle"></svg>Project Planning &amp; Management</li>
+      <li><svg data-lucide="check-circle"></svg>After-Sales Support &amp; Maintenance</li>
+    </ul>
+  </div>
+  <div class="split-r rev">
+    <blockquote>"At Bovet Engineering we bring Precision, Professionalism, and Excellent performance in every project we execute — protecting your investment."</blockquote>
+    <cite>— Bovet Engineering Limited, Port Harcourt</cite>
+    <a href="about.html" class="r-cta"><svg data-lucide="arrow-right"></svg>Read Our Story</a>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="cta-inner">
+    <h2 class="rev">Ready to <em>Start Your Project?</em></h2>
+    <p class="rev">Need reliable engineering and IT solutions? Our team is ready to deliver precision-driven results tailored to your exact needs.</p>
+    <div class="cta-btns rev">
+      <a href="contact.html" class="btn-gold"><svg data-lucide="send"></svg>Contact Us Today</a>
+      <a href="about.html" class="btn-wht"><svg data-lucide="info"></svg>Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <div class="ft-brand-logo">
+          <div class="logo-badge"><span>B</span></div>
+          <div class="logo-text"><strong style="color:#fff;">BOVET</strong><small style="color:var(--gold);">Engineering Limited</small></div>
+        </div>
+        <p>Technically sound in Engineering solutions for Africa — from IT/Telecom to Electrical/Mechanical and Procurement/Logistics.</p>
+        <div class="ft-contact-stack">
+          <div class="ft-ci"><svg data-lucide="map-pin"></svg>Mile 3, Ikokwu, 2B Odunze St, Phalga, Port Harcourt, Rivers State.</div>
+          <div class="ft-ci"><svg data-lucide="phone"></svg>+2349011113491</div>
+          <div class="ft-ci"><svg data-lucide="mail"></svg>bovet.engineering@gmail.com</div>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html"><svg data-lucide="chevron-right"></svg>Home</a></li>
+          <li><a href="about.html"><svg data-lucide="chevron-right"></svg>About Us</a></li>
+          <li><a href="contact.html"><svg data-lucide="chevron-right"></svg>Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Our Services</h4>
+        <ul>
+          <li><a href="#"><svg data-lucide="chevron-right"></svg>IT / Telecommunications</a></li>
+          <li><a href="#"><svg data-lucide="chevron-right"></svg>CCTV &amp; Surveillance</a></li>
+          <li><a href="#"><svg data-lucide="chevron-right"></svg>Access Control</a></li>
+          <li><a href="#"><svg data-lucide="chevron-right"></svg>Electrical / Mechanical</a></li>
+          <li><a href="#"><svg data-lucide="chevron-right"></svg>Procurement &amp; Logistics</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="tel:+2349011113491"><svg data-lucide="phone-call"></svg>+2349011113491</a></li>
+          <li><a href="mailto:bovet.engineering@gmail.com"><svg data-lucide="mail"></svg>bovet.engineering@gmail.com</a></li>
+        </ul>
+        <div class="ft-socials">
+          <a class="ft-soc" href="#"><svg data-lucide="linkedin"></svg></a>
+          <a class="ft-soc" href="#"><svg data-lucide="twitter"></svg></a>
+          <a class="ft-soc" href="#"><svg data-lucide="facebook"></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p>&copy; 2025 Bovet Engineering Limited. All rights reserved.</p>
+      <a href="mailto:bovet.engineering@gmail.com">bovet.engineering@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+lucide.createIcons();
+function openMob(){document.getElementById('mobNav').classList.add('open');document.body.style.overflow='hidden';}
+function closeMob(){document.getElementById('mobNav').classList.remove('open');document.body.style.overflow='';}
+// Slider
+let cur=0,total=3,timer;
+const slidesEl=document.getElementById('slides');
+const dots=document.querySelectorAll('.dot');
+const slideEls=document.querySelectorAll('.slide');
+const snum=document.getElementById('snum');
+const nums=['01','02','03'];
+function goSlide(i){slideEls[cur].classList.remove('active');dots[cur].classList.remove('active');cur=i;slideEls[cur].classList.add('active');dots[cur].classList.add('active');slidesEl.style.transform=`translateX(-${cur*33.333}%)`;if(snum)snum.textContent=nums[cur];reset();}
+function next(){goSlide((cur+1)%total);}
+function prev(){goSlide((cur-1+total)%total);}
+function reset(){clearInterval(timer);timer=setInterval(next,5500);}
+reset();
+// Reveal
+const ro=new IntersectionObserver(entries=>entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('on'),i*70);ro.unobserve(e.target);}}),{threshold:.1});
+document.querySelectorAll('.rev').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>
